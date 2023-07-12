@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class ServCliente {
 
-   Scanner leer = new Scanner(System.in, "ISO-8859-1").useDelimiter("\n"); //ISO-8859-1 PERMITE USAR Ñ Y TILDES
+    Scanner leer = new Scanner(System.in, "ISO-8859-1").useDelimiter("\n"); //ISO-8859-1 PERMITE USAR Ñ Y TILDES
 
     public Cliente registrarCliente() {
         System.out.print("ID: ");
@@ -19,24 +19,24 @@ public class ServCliente {
         double altura = leer.nextDouble();
         System.out.print("Peso: ");
         double peso = leer.nextDouble();
-        System.out.println("Objetivo: ");
+        System.out.print("Objetivo: ");
         String objetivo = leer.next();
         return new Cliente(id, edad, nombre, objetivo, altura, peso);
     }
 
-    public void obtenerClientes(ArrayList<Cliente> L1) {
-        for (int i = 0; i < L1.size(); i++) {
-            System.out.println(L1.get(i));
+    public void obtenerCliente(ArrayList<Cliente> lC) {
+        for (int i = 0; i < lC.size(); i++) {
+            System.out.println(lC.get(i));
         }
 
     }
-   
-    public void actualizarCliente(ArrayList<Cliente> l1) {  //AQUI DESCUBRIMOS QUE SE PUEDE USAR GETTER Y SETTER CON FOR EACH
+
+    public void actualizarCliente(ArrayList<Cliente> lC) {  //AQUI DESCUBRIMOS QUE SE PUEDE USAR GETTER Y SETTER CON FOR EACH
         System.out.print("Ingrese el ID del usuario a modificar: ");
         int id = leer.nextInt();
-       
-        for (Cliente cliente : l1) {
-            if (cliente.getId() == id) { 
+
+        for (Cliente cliente : lC) {
+            if (cliente.getId() == id) {
                 System.out.println("Se encontro ese cliente. A continuacion los datos ingresados modificaran los anteriores: ");
                 System.out.print("Nombre :");
                 cliente.setNombre(leer.next());
@@ -53,6 +53,19 @@ public class ServCliente {
                 break;
             }
         }
+    }
 
+    public void eliminarCliente(ArrayList<Cliente> lC) {
+        System.out.print("Ingrese el ID del usuario a eliminar: ");
+        int id = leer.nextInt();
+
+        for (Cliente cliente : lC) {
+            if (cliente.getId() == id) {
+                lC.remove(cliente);
+                System.out.println("");
+                System.out.println(id + " eliminado.");
+                break;
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 package energizapp.entidades;
 
 public class Cliente {
-    
+
     private int id, edad;
     private String nombre, objetivo;
     private double altura, peso;
@@ -25,6 +25,8 @@ public class Cliente {
     public void setId(int id) { //SOLO SE ASIGNA VALOR AL ID SI EL ENTERO ES DE 7 DIGITOS
         if (String.valueOf(id).length() == 7) {
             this.id = id;
+        } else {
+            System.out.print("Valor incorrecto. No se guardo un valor.");
         }
     }
 
@@ -35,7 +37,9 @@ public class Cliente {
     public void setEdad(int edad) { //SOLO SE ASIGNA VALOR AL EDAD SI EL ENTERO ES MAYOR A 18
         if (edad > 18) {
             this.edad = edad;
-        }        
+        } else {
+            System.out.print("Menor de edad. No se guardo un valor.");
+        }
     }
 
     public String getNombre() {
@@ -74,10 +78,5 @@ public class Cliente {
     public String toString() {
         return "Cliente{" + "id=" + id + ", edad=" + edad + ", nombre=" + nombre + ", objetivo=" + objetivo + ", altura=" + altura + ", peso=" + peso + '}';
     }
-    
-    
-    
-    
-    
-    
+
 }
