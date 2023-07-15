@@ -14,15 +14,15 @@ public class EnergizAPP {
 
         System.out.println("=========================================");
         System.out.println("");
-        System.out.println("===========REGISTRO 5 CLIENTES===========");
+        System.out.println("===========REGISTRO 1 CLIENTES===========");
         ArrayList<Cliente> lC = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 1; i++) {
             Cliente c = sC.registrarCliente();
             lC.add(c);
         }
-        System.out.println("===========REGISTRO 5 RUTINAS============");
+        System.out.println("===========REGISTRO 1 RUTINAS============");
         ArrayList<Rutina> lR = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 1; i++) {
             Rutina r = sR.registrarRutina();
             lR.add(r);
         }
@@ -49,6 +49,11 @@ public class EnergizAPP {
         System.out.println("=============ELIMINAR RUTINA===============");
         sR.eliminarRutina(lR);
         System.out.println("==========================================");
+
+        System.out.println("================CLIENTES==================");
+        sC.obtenerCliente(lC);
+        System.out.println("================RUTINAS===================");
+        sR.obtenerRutina(lR);
         System.out.println("");
         System.out.println("===========PROGRAMA TERMINADO===========");
     }

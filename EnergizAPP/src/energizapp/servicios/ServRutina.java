@@ -10,13 +10,25 @@ public class ServRutina {
 
     public Rutina registrarRutina() {
         System.out.print("ID: ");
-        int id = leer.nextInt();
+        int id;
+        do {
+            id = leer.nextInt();
+        } while (Integer.toString(id).length()!=1);
         System.out.print("Nombre: ");
-        String nombre = leer.next();
+        String nombre;
+        do {
+            nombre = leer.next();
+        } while (nombre.length()>50);
         System.out.print("Duracion: ");
-        int duracion = leer.nextInt();
+        int duracion;
+        do {
+            duracion = leer.nextInt();
+        } while (duracion>120);
         System.out.print("Nivel de dificultad: ");
-        int nivelDificultad = leer.nextInt();
+        int nivelDificultad;
+        do {
+        nivelDificultad = leer.nextInt();
+        } while (nivelDificultad>5);                
         System.out.print("Descripcion: ");
         String descripcion = leer.next();
 

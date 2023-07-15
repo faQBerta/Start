@@ -29,11 +29,7 @@ public class Rutina {
     }
 
     public void setDuracion(int duracion) {
-        if (duracion < 121) {
-            this.duracion = duracion;
-        } else {
-            System.out.print("Muy larga. No se guardo un valor.");
-        }
+        this.duracion = duracion;
     }
 
     public int getNivelDificultad() {
@@ -41,11 +37,7 @@ public class Rutina {
     }
 
     public void setNivelDificultad(int nivelDificultad) {
-        if (nivelDificultad < 6) {
-            this.nivelDificultad = nivelDificultad;
-        } else {
-            System.out.print("Mayor a 5. No se guardo un valor.");
-        }
+        this.nivelDificultad = nivelDificultad;
     }
 
     public String getDescripcion() {

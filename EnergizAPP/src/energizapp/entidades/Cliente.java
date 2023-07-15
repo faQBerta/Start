@@ -22,24 +22,16 @@ public class Cliente {
         return id;
     }
 
-    public void setId(int id) { //SOLO SE ASIGNA VALOR AL ID SI EL ENTERO ES DE 7 DIGITOS
-        if (String.valueOf(id).length() == 7) {
+    public void setId(int id) {
             this.id = id;
-        } else {
-            System.out.print("Valor incorrecto. No se guardo un valor.");
-        }
     }
 
     public int getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) { //SOLO SE ASIGNA VALOR AL EDAD SI EL ENTERO ES MAYOR A 18
-        if (edad > 18) {
+    public void setEdad(int edad) {
             this.edad = edad;
-        } else {
-            System.out.print("Menor de edad. No se guardo un valor.");
-        }
     }
 
     public String getNombre() {

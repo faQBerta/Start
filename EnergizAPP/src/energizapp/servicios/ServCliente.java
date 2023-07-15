@@ -10,15 +10,30 @@ public class ServCliente {
 
     public Cliente registrarCliente() {
         System.out.print("ID: ");
-        int id = leer.nextInt();
+        int id;
+        do {
+            id = leer.nextInt();
+        } while (Integer.toString(id).length()!=8);
         System.out.print("Nombre: ");
-        String nombre = leer.next();
+        String nombre;
+        do {
+            nombre = leer.next();
+        } while (nombre.length()>50);
         System.out.print("Edad: ");
-        int edad = leer.nextInt();
+        int edad;
+        do {
+            edad = leer.nextInt();
+        } while(edad<18);
         System.out.print("Altura: ");
-        double altura = leer.nextDouble();
+        double altura; 
+        do{
+            altura = leer.nextDouble();
+        } while (altura<1.5);
         System.out.print("Peso: ");
-        double peso = leer.nextDouble();
+        double peso;
+        do {
+            peso = leer.nextDouble();
+        } while (peso<45);
         System.out.print("Objetivo: ");
         String objetivo = leer.next();
         return new Cliente(id, edad, nombre, objetivo, altura, peso);
