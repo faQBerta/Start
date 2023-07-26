@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class EnergizAPP {
 
     public static void main(String[] args) {
+        //CREAREMOS RUTINAS Y CLIENTES INDEPENDIENTES
         ServCliente sC = new ServCliente();
         ServRutina sR = new ServRutina();
 

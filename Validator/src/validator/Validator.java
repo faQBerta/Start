@@ -6,6 +6,7 @@ import validator.entities.PasswordValidator;
 public class Validator {
 
     public static void main(String[] args) {
+        //VALIDADOR DE CONTRASEÑAS CON PRIMERAS PRUEBAS UNITARIAS
         Scanner leer = new Scanner(System.in, "ISO-8859-1").useDelimiter("\n");
         PasswordValidator pv = new PasswordValidator();
         String password;
