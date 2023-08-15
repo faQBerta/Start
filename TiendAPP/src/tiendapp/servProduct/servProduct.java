@@ -49,7 +49,7 @@ public class servProduct {
             }
 
         } while (opc != 5);
-        System.out.println("= = = = || ELMERCADITO || = = = ="
+        System.out.println("= = = = || ELMERCADITO || = = = =" + "\n"
                 + "|| = = = = = = EXIT = = = = = = ||");
     }
 
