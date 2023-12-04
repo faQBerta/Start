@@ -1,6 +1,7 @@
 package com.faqberta.presupuestos.servicios;
 
-import com.faqberta.presupuestos.entidas.Cliente;
+import com.faqberta.presupuestos.entidades.Cliente;
+import com.faqberta.presupuestos.excepciones.MiException;
 import com.faqberta.presupuestos.repositorios.ClienteRepositorio;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,10 @@ public class ClienteServicio {
     ClienteRepositorio clienteRepositorio;
     
     @Transactional
-    public void crearCliente (String nombre) {
+    public void crearCliente (String nombre) throws MiException {
+        
+        validar(nombre, "asd");
+        
         Cliente cliente = new Cliente();
         
         cliente.setNombre(nombre);
@@ -24,7 +28,7 @@ public class ClienteServicio {
         clienteRepositorio.save(cliente);
     }
     
-        public List<Cliente> listarPresupuestos() {
+        public List<Cliente> listarClientes() {
         
         List<Cliente> clientes = new ArrayList<>();
         
@@ -33,7 +37,9 @@ public class ClienteServicio {
         return clientes;
     }
         
-    public void modificarCliente(String nombre, String id) {
+    public void modificarCliente(String nombre, String id) throws MiException {
+        
+        validar(nombre, id);
 
         Optional<Cliente> respuesta = clienteRepositorio.findById(id);
 
@@ -44,6 +50,18 @@ public class ClienteServicio {
 
             clienteRepositorio.save(cliente);
         }
+    }
+    
+    private void validar(String nombre, String id) throws MiException{
+        
+        if (id.isEmpty() || id == null) {
+            throw new MiException("El ID del cliente no puede ser nulo o estar en blanco.");
+        }
+
+        if (nombre.isEmpty() || nombre == null) {
+            throw new MiException("El nombre del cliente no puede ser nulo o estar en blanco.");
+        }
+
     }
     
 }

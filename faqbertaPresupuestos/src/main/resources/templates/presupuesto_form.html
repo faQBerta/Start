@@ -1,0 +1,78 @@
+<html xmlns:th="http://www.thymeleaf.org/">
+    <head>
+        <title>Presupuestos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div {
+                background-color: lightyellow;
+                width: 10%;
+                border: 3px solid yellow;
+                padding: 25px;
+                margin: 5px;
+            }
+            .center {
+                margin: auto;
+                width: 10%;
+                border: 3px solid yellow;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <form action="/presupuesto/registro" method="POST">
+
+            <div>
+                <label>Cargar presupuesto</label>
+                <input type="number" name= "idPres" placeholder="ID Presupuesto">
+            </div>
+            <div>
+                <input type="text" name= "Nombre" placeholder="Nombre del presupuesto">
+            </div>
+            <div>
+                <input type="number" name= "Valor" placeholder="Valor del presupuesto">
+            </div>
+            
+            <div class="center">
+                <button type="submit"> Guardar </button>
+            </div>
+            
+            <div class="center">
+                <select name="idCliente">
+                    <option>Seleccionar Cliente</option>
+                    <option th:each="cliente : ${clientes}"
+                            th:value="${cliente.idCliente}"
+                            th:text="${cliente.nombre}"
+                            />
+                </select>
+            </div>
+
+            <div class="center">
+                <select name="idServicio">  
+                    <option>Seleccionar Servicio</option>
+                    <option th:each="servicio : ${servicios}"
+                            th:value="${servicio.idServ}" 
+                            th:text="${servicio.nombre}"
+                            />
+                </select>
+            </div>
+
+            <div th:if="${error != null}">
+                <div>
+                    <h5> Error </h5>
+                    <p th:text="${error}"></p>
+                </div>
+            </div>
+
+            <div th:if="${exito != null}">
+                <div>
+                    <h5> Exito </h5>
+                    <p th:text="${exito}"></p>
+                </div>
+            </div>
+
+        </form>
+
+    </body>
+</html>

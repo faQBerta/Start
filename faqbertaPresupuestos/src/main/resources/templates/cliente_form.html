@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="UTF-8">
+        <title>Clientes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div {
+                background-color: lightyellow;
+                width: 10%;
+                border: 3px solid yellow;
+                padding: 25px;
+                margin: 5px;
+            }
+            .center {
+                margin: auto;
+                width: 10%;
+                border: 3px solid yellow;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div>
+                <h2>Nombre del cliente</h2>
+            </div>
+        </header>
+        <form action="/cliente/registro" method="POST">
+            <div>
+                <input type="text" name="nombre" placeholder="Nombre del cliente">
+            </div>
+
+            <div class="center">
+                <button type="submit"> Guardar </button>
+            </div>
+            
+            <div th:if="${error != null}">
+                <div>
+                    <h5> Error </h5>
+                    <p th:text="${error}"></p>
+                </div>
+            </div>
+
+            <div th:if="${exito != null}">
+                <div>
+                    <h5> Exito </h5>
+                    <p th:text="${exito}"></p>
+                </div>
+            </div>
+
+        </form>
+    </body>
+</html>

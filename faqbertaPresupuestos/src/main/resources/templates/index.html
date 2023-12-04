@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Presupuestador</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div {
+                background-color: lightyellow;
+                width: 35%;
+                border: 3px solid yellow;
+                padding: 25px;
+                margin: 5px;
+            }
+            .center {
+                margin: auto;
+                width: 10%;
+                border: 3px solid yellow;
+                padding: 10px;
+            }
+        </style>        
+    </head>
+    <body>
+        <div class="center">
+            <h1>!ESTAMOS EN EL INDEX!</h1>
+        </div>
+
+        <div th:if="${error != null}">
+            <div>
+                <h5> Error </h5>
+                <p th:text="${error}"></p>
+            </div>
+        </div>
+
+        <div th:if="${exito != null}">
+            <div>
+                <h5> Exito </h5>
+                <p th:text="${exito}"></p>
+            </div>
+    </body>
+</html>

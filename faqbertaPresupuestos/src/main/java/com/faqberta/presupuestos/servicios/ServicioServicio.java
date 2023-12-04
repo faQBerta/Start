@@ -1,6 +1,7 @@
 package com.faqberta.presupuestos.servicios;
 
-import com.faqberta.presupuestos.entidas.Servicio;
+import com.faqberta.presupuestos.entidades.Servicio;
+import com.faqberta.presupuestos.excepciones.MiException;
 import com.faqberta.presupuestos.repositorios.ServicioRepositorio;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,9 @@ public class ServicioServicio {
     ServicioRepositorio servicioRepositorio;
 
     @Transactional
-    public void crearServicio(String nombre) {
+    public void crearServicio(String nombre) throws MiException {
+        
+        validar(nombre, "asd");
 
         Servicio servicio = new Servicio();
 
@@ -26,7 +29,7 @@ public class ServicioServicio {
 
     }
 
-    public List<Servicio> listarPresupuestos() {
+    public List<Servicio> listarServicios() {
 
         List<Servicio> servicios = new ArrayList<>();
 
@@ -35,8 +38,10 @@ public class ServicioServicio {
         return servicios;
     }
 
-    public void modificarServicio(String nombre, String id) {
+    public void modificarServicio(String nombre, String id) throws MiException {
 
+        validar(nombre, id);
+        
         Optional<Servicio> respuesta = servicioRepositorio.findById(id);
 
         if (respuesta.isPresent()) {
@@ -48,4 +53,15 @@ public class ServicioServicio {
         }
     }
 
+        private void validar(String nombre, String id) throws MiException{
+        
+        if (id.isEmpty() || id == null) {
+            throw new MiException("El ID del servicio no puede ser nulo o estar en blanco.");
+        }
+
+        if (nombre.isEmpty() || nombre == null) {
+            throw new MiException("El nombre del servicio no puede ser nulo o estar en blanco.");
+        }
+
+    }
 }
