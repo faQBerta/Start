@@ -1,12 +1,14 @@
-<html xmlns:th="http://www.thymeleaf.org/">
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
-        <title>Presupuestos</title>
         <meta charset="UTF-8">
+        <title>Presupuestos</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             div {
                 background-color: lightyellow;
-                width: 10%;
+                width: 25%;
                 border: 3px solid yellow;
                 padding: 25px;
                 margin: 5px;
@@ -20,18 +22,22 @@
         </style>
     </head>
     <body>
-
-        <form action="/presupuesto/registro" method="POST">
-
+        <header>
             <div>
-                <label>Cargar presupuesto</label>
-                <input type="number" name= "idPres" placeholder="ID Presupuesto">
+                <h2>Nombre del presupuesto</h2>
             </div>
+        </header>
+        <form th:action="@{/presupuesto/modificar/__${presupuesto.idPres}__}" method="POST">
+
+            <input hidden th:value="${idPres}" name="idPres">
+
             <div>
-                <input type="text" name= "Nombre" placeholder="Nombre del presupuesto">
+                <input th:value="${presupuesto.Nombre}" type="text" name="Nombre" placeholder="Nombre del presupuesto">
             </div>
+
             <div>
-                <input type="number" name= "Valor" placeholder="Valor del presupuesto">
+                <label>Valor</label> 
+                <input th:value="${presupuesto.Valor}" type="number" name="Valor" placeholder="Valor">
             </div>
 
             <div class="center">
@@ -45,7 +51,7 @@
             </div>
 
             <div class="center">
-                <select name="idServicio">  
+                <select name="idServ">  
                     <option>Seleccionar Servicio</option>
                     <option th:each="servicio : ${servicios}"
                             th:value="${servicio.idServ}" 
@@ -55,7 +61,7 @@
             </div>
 
             <div class="center">
-                <button type="submit"> Guardar </button>
+                <button type="submit"> Actualizar </button>
             </div>
 
             <div th:if="${error != null}">
@@ -73,6 +79,5 @@
             </div>
 
         </form>
-
     </body>
 </html>

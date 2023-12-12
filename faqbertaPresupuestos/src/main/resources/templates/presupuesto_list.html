@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Lista de presupuestos</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div {
+                background-color: lightyellow;
+                width: 25%;
+                border: 3px solid yellow;
+                padding: 25px;
+                margin: 5px;
+            }
+            .center {
+                margin: auto;
+                width: 10%;
+                border: 3px solid yellow;
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <table>
+                <thread>
+                    <tr>
+                        <th scope="col">Id del Presupuesto</th>
+                        <th scope="col"> Nombre del Presupuesto</th>
+                        <th scope="col"> Valor</th>
+                        <th scope="col"> Cliente</th>
+                        <th scope="col"> Servicio</th>
+                    </tr>
+                </thread>
+                <tbody th:each="presupuesto : ${presupuestos}">
+                    <tr>
+                        <th scope="row" th:text="${presupuesto.idPres}"></th>
+                        <td th:text="${presupuesto.Nombre}"></td>
+                        <td th:text="${presupuesto.Valor}"></td>
+                        <td th:text="${presupuesto.cliente.nombre}"></td>
+                        <td th:text="${presupuesto.servicio.nombre}"></td>
+                          <td>
+                            <a th:href="@{/presupuesto/modificar/__${presupuesto.idPres}__}"> Modificar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div th:if="${exito != null}">
+                <div>
+                    <h5> Exito </h5>
+                    <p th:text="${exito}"></p>
+                </div>
+            </div>
+            
+            <div th:if="${error != null}">
+                <div>
+                    <h5> Error </h5>
+                    <p th:text="${error}"></p>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+</html>
+

@@ -15,7 +15,7 @@
             }
             .center {
                 margin: auto;
-                width: 10%;
+                width: 15%;
                 border: 3px solid yellow;
                 padding: 10px;
             }
@@ -23,7 +23,48 @@
     </head>
     <body>
         <div class="center">
-            <h1>!ESTAMOS EN EL INDEX!</h1>
+            <h1>Presupuestador de faQBerta</h1>
+        </div>
+
+        <div >
+            <ul>
+                <li>
+                    <a>
+                        Libros
+                    </a>
+                    <ul>
+
+                        <hr>
+                        <li><a th:href="@{/presupuesto/registrar}">Crear presupuesto</a></li>
+
+                        <li><a th:href="@{/presupuesto/lista}">Listar presupuestos</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a>
+                        Autores
+                    </a>
+                    <ul>
+                        <hr>
+                        <li><a th:href="@{/cliente/registrar}">Crear cliente</a></li>
+
+                        <li><a th:href="@{/cliente/lista}">Listar clientes</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a>
+                        Editoriales
+                    </a>
+                    <ul>
+                        <hr>
+                        <li><a th:href="@{/servicio/registrar}">Crear servicio</a></li>
+
+                        <li><a th:href="@{/servicio/lista}">Listar servicios</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
 
         <div th:if="${error != null}">

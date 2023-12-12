@@ -38,11 +38,11 @@ public class ServicioServicio {
         return servicios;
     }
 
-    public void modificarServicio(String nombre, String id) throws MiException {
+    public void modificarServicio(String idServ, String nombre) throws MiException {
 
-        validar(nombre, id);
+        validar(idServ, nombre);
         
-        Optional<Servicio> respuesta = servicioRepositorio.findById(id);
+        Optional<Servicio> respuesta = servicioRepositorio.findById(idServ);
 
         if (respuesta.isPresent()) {
             Servicio servicio = respuesta.get();
@@ -52,10 +52,14 @@ public class ServicioServicio {
             servicioRepositorio.save(servicio);
         }
     }
+    
+        public Servicio getOne(String idServ) {
+        return servicioRepositorio.getOne(idServ);
+    }
 
-        private void validar(String nombre, String id) throws MiException{
+        private void validar(String idServ, String nombre) throws MiException{
         
-        if (id.isEmpty() || id == null) {
+        if (idServ.isEmpty() || idServ == null) {
             throw new MiException("El ID del servicio no puede ser nulo o estar en blanco.");
         }
 

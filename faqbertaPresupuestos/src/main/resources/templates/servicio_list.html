@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Lista de clientes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div {
+                background-color: lightyellow;
+                width: 25%;
+                border: 3px solid yellow;
+                padding: 25px;
+                margin: 5px;
+            }
+            .center {
+                margin: auto;
+                width: 10%;
+                border: 3px solid yellow;
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <table>
+                <thread>
+                    <tr>
+                        <th scope="col">Id del Servicio</th>
+                        <th scope="col"> Nombre del Servicio</th>
+                        <th scope="col"> Acciones</th>
+                    </tr>
+                </thread>
+                <tbody th:each="servicio : ${servicios}">
+                    <tr>
+                        <th scope="row" th:text="${servicio.idServ}"></th>
+                        <td th:text="${servicio.nombre}"></td>
+                        <td>
+                            <a th:href="@{/servicio/modificar/__${servicio.idServ}__}"> Modificar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div th:if="${exito != null}">
+            <div>
+                <h5> Exito </h5>
+                <p th:text="${exito}"></p>
+            </div>
+        </div>
+
+        <div th:if="${error != null}">
+            <div>
+                <h5> Error </h5>
+                <p th:text="${error}"></p>
+            </div>
+        </div>
+
+
+    </body>
+</html>

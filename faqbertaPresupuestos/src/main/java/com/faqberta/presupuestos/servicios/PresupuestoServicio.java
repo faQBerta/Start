@@ -27,9 +27,9 @@ public class PresupuestoServicio {
 
     @Transactional //PERMITE UN ROLLBACK EN CASO DE ERROR
     public void crearPresupuesto(Long idPres, String Nombre, Integer Valor, String idCliente, String idServ) throws MiException {
-        
-        validar(idPres, Nombre, idCliente, idServ, Valor);
-        
+
+        validar(idPres, Nombre, Valor, idCliente, idServ);
+
         Cliente cliente = clienteRepositorio.findById(idCliente).get();
         Servicio servicio = servicioRepositorio.findById(idServ).get();
 
@@ -47,6 +47,7 @@ public class PresupuestoServicio {
         presupuestoRepositorio.save(presupuesto);
     }
 
+    @Transactional
     public List<Presupuesto> listarPresupuestos() {
 
         List<Presupuesto> presupuestos = new ArrayList<>();
@@ -56,10 +57,11 @@ public class PresupuestoServicio {
         return presupuestos;
     }
 
-    public void modificarPresupuesto(Long idPres, String Nombre, String idCliente, String idServ, Integer Valor) throws MiException {
+    @Transactional
+    public void modificarPresupuesto(Long idPres, String Nombre, Integer Valor, String idCliente, String idServ) throws MiException {
 
-        validar(idPres, Nombre, idCliente, idServ, Valor);
-        
+        validar(idPres, Nombre, Valor, idCliente, idServ);
+
         Optional<Presupuesto> respuesta = presupuestoRepositorio.findById(idPres); //DEVUELVE TRUE Y LO CONVIERTE A GET
         Optional<Cliente> respuestaCliente = clienteRepositorio.findById(idCliente);
         Optional<Servicio> respuestaServicio = servicioRepositorio.findById(idServ);
@@ -81,21 +83,21 @@ public class PresupuestoServicio {
 
             Presupuesto presupuesto = respuesta.get();
 
+            presupuesto.setValor(Valor);
+
             presupuesto.setNombre(Nombre);
 
             presupuesto.setCliente(cliente);
 
             presupuesto.setServicio(servicio);
 
-            presupuesto.setValor(Valor);
-
             presupuestoRepositorio.save(presupuesto);
         }
 
     }
-    
-    private void validar (Long idPres, String Nombre, String idCliente, String idServ, Integer Valor) throws MiException {
-        
+
+    private void validar(Long idPres, String Nombre, Integer Valor, String idCliente, String idServ) throws MiException {
+
         if (idPres == null) {
             throw new MiException("El ID del presupuesto no puede ser nulo.");
         }
@@ -115,6 +117,10 @@ public class PresupuestoServicio {
         if (idServ.isEmpty() || idServ == null) {
             throw new MiException("El ID del servicio del presupuesto no puede ser nulo o estar en blanco.");
         }
+    }
+
+    public Presupuesto getOne(Long idPres) {
+        return presupuestoRepositorio.getOne(idPres);
     }
 
 }
