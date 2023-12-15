@@ -6,67 +6,73 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-            div {
+            .divContent {
+                display: grid;
+                justify-content: center;
+            }
+            .div {
                 background-color: lightyellow;
-                width: 35%;
+                width: 300px;
                 border: 3px solid yellow;
                 padding: 25px;
                 margin: 5px;
             }
-            .center {
-                margin: auto;
-                width: 15%;
-                border: 3px solid yellow;
-                padding: 10px;
-            }
+
         </style>        
     </head>
+
+    <!AQUI HACE FALTA REVISAR, APRENDER Y TERMINAR DE ARMAR UN BUEN CSS>
+
     <body>
-        <div class="center">
-            <h1>Presupuestador de faQBerta</h1>
+        <div class="divContent">
+            <div>
+                <h1>Presupuestador de faQBerta</h1>
+            </div>
+
+            <div>
+                <div class="div">
+                    <ul>
+                        <li>
+                            <a>
+                                Prespuestos
+                            </a>
+                            <ul>
+
+                                <hr>
+                                <li><a th:href="@{/presupuesto/registrar}">Crear presupuesto</a></li>
+
+                                <li><a th:href="@{/presupuesto/lista}">Listar presupuestos</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a>
+                                Clientes
+                            </a>
+                            <ul>
+                                <hr>
+                                <li><a th:href="@{/cliente/registrar}">Crear cliente</a></li>
+
+                                <li><a th:href="@{/cliente/lista}">Listar clientes</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a>
+                                Servicios
+                            </a>
+                            <ul>
+                                <hr>
+                                <li><a th:href="@{/servicio/registrar}">Crear servicio</a></li>
+
+                                <li><a th:href="@{/servicio/lista}">Listar servicios</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
-
-        <div >
-            <ul>
-                <li>
-                    <a>
-                        Libros
-                    </a>
-                    <ul>
-
-                        <hr>
-                        <li><a th:href="@{/presupuesto/registrar}">Crear presupuesto</a></li>
-
-                        <li><a th:href="@{/presupuesto/lista}">Listar presupuestos</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a>
-                        Autores
-                    </a>
-                    <ul>
-                        <hr>
-                        <li><a th:href="@{/cliente/registrar}">Crear cliente</a></li>
-
-                        <li><a th:href="@{/cliente/lista}">Listar clientes</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a>
-                        Editoriales
-                    </a>
-                    <ul>
-                        <hr>
-                        <li><a th:href="@{/servicio/registrar}">Crear servicio</a></li>
-
-                        <li><a th:href="@{/servicio/lista}">Listar servicios</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
         <div th:if="${error != null}">
             <div>
                 <h5> Error </h5>
