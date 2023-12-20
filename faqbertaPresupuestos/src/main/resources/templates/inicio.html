@@ -1,6 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
-        <title>Presupuestador</title>
+        <title>Inicio</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
@@ -16,58 +16,60 @@
                 margin: 5px;
             }
 
-        </style>        
+        </style>
     </head>
-
-    <!AQUI HACE FALTA REVISAR, APRENDER Y TERMINAR DE ARMAR UN BUEN CSS>
-
     <body>
-        <div class="divContent">
-            <div>
-                <h1>Presupuestador de faQBerta</h1>
-            </div>
 
-            <div>
-                <div class="div">
+        <div class="divContent">
+            <div class="div">
+                <ul>
                     <ul>
                         <li>
                             <a>
-                                Ingresar a tu cuenta
+                                Prespuestos
                             </a>
                             <ul>
 
-                                <li><a th:href="@{/login}">Login</a></li>
+                                <li><a th:href="@{/presupuesto/lista}">Listar presupuestos</a></li>
+
                             </ul>
                         </li>
                         <hr>
-
                         <li>
                             <a>
-                                Crear cuenta
+                                Clientes
                             </a>
                             <ul>
 
-                                <li><a th:href="@{/registrar}">Registrarme</a></li>
+                                <li><a th:href="@{/cliente/lista}">Listar clientes</a></li>
+
                             </ul>
                         </li>
                         <hr>
-                        
+                        <li>
+                            <a>
+                                Servicios
+                            </a>
+                            <ul>
+
+                                <li><a th:href="@{/servicio/lista}">Listar servicios</a></li>
+
+                            </ul>
+                        </li>
+                        <hr>
                     </ul>
-                </div>
-            </div>
 
-        </div>
-        <div th:if="${error != null}">
-            <div>
-                <h5> Error </h5>
-                <p th:text="${error}"></p>
+                    <ul>
+                        <a href="#">Perfil</a>
+                    </ul>
+                    <ul>
+                        <a href="/logout" >Cerrar Sesion</a>
+                    </ul>
+
+                </ul>
             </div>
         </div>
 
-        <div th:if="${exito != null}">
-            <div>
-                <h5> Exito </h5>
-                <p th:text="${exito}"></p>
-            </div>
     </body>
+
 </html>
