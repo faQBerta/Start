@@ -1,23 +1,5 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head>
-        <title>Presupuestador</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            .divContent {
-                display: grid;
-                justify-content: center;
-            }
-            .div {
-                background-color: lightyellow;
-                width: 300px;
-                border: 3px solid yellow;
-                padding: 25px;
-                margin: 5px;
-            }
-
-        </style>        
-    </head>
+    <head th:replace= "/fragment/head :: head" </head>
 
     <!AQUI HACE FALTA REVISAR, APRENDER Y TERMINAR DE ARMAR UN BUEN CSS>
 
@@ -36,7 +18,7 @@
                             </a>
                             <ul>
 
-                                <li><a th:href="@{/login}">Login</a></li>
+                                <li><a th:if="${session.usuariosession == null}" th:href="@{/login}">Login</a></li>
                             </ul>
                         </li>
                         <hr>
@@ -47,11 +29,21 @@
                             </a>
                             <ul>
 
-                                <li><a th:href="@{/registrar}">Registrarme</a></li>
+                                <li><a th:if="${session.usuariosession == null}" th:href="@{/registrar}">Registrarme</a></li>
                             </ul>
                         </li>
                         <hr>
-                        
+
+                        <li>
+                            <a>
+                                Inicio
+                            </a>
+                            <ul>
+
+                                <li><a th:if="${session.usuariosession != null}" th:href="@{/inicio}">Ingresar al sitio web</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </div>
             </div>

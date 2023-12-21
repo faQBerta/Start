@@ -1,8 +1,11 @@
 package com.faqberta.presupuestos.controladores;
 
+import com.faqberta.presupuestos.entidades.Usuario;
 import com.faqberta.presupuestos.excepciones.MiException;
 import com.faqberta.presupuestos.servicios.UsuarioServicio;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,9 +60,17 @@ public class PortalControlador { //localhost:8080/
 
         return "login.html";
     }
-    
+
+    @PreAuthorize("hasAnyRole ('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/inicio")
-    public String iniciar() {
+    public String inicio(HttpSession session) {
+
+        Usuario logueado = (Usuario) session.getAttribute("usuariosession");
+
+        if (logueado.getRol().toString().equals("ADMIN")) {
+            return "redirect:/admin/dashboard";
+        }
+
         return "inicio.html";
     }
 }

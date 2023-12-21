@@ -1,26 +1,5 @@
-<!DOCTYPE html>
-
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head>
-        <title>Lista de clientes</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            div {
-                background-color: lightyellow;
-                width: 25%;
-                border: 3px solid yellow;
-                padding: 25px;
-                margin: 5px;
-            }
-            .center {
-                margin: auto;
-                width: 10%;
-                border: 3px solid yellow;
-                padding: 10px;
-            }
-        </style>
-    </head>
+    <head th:replace= "/fragment/head :: head" </head>
 
     <body>
         <div>
@@ -29,7 +8,7 @@
                     <tr>
                         <th scope="col">Id del Cliente</th>
                         <th scope="col"> Nombre del Cliente</th>
-                        <th scope="col"> Acciones</th>
+                        <th scope="col" sec:authorize="hasRole('ADMIN')"> Acciones</th>
                     </tr>
                 </thread>
                 <tbody th:each="cliente : ${clientes}">
@@ -37,7 +16,7 @@
                         <th scope="row" th:text="${cliente.idCliente}"></th>
                         <td th:text="${cliente.nombre}"></td>
                         <td>
-                            <a th:href="@{/cliente/modificar/__${cliente.idCliente}__}"> Modificar</a>
+                            <a sec:authorize="hasRole('ADMIN')" th:href="@{/cliente/modificar/__${cliente.idCliente}__}"> Modificar</a>
                         </td>
                     </tr>
                 </tbody>

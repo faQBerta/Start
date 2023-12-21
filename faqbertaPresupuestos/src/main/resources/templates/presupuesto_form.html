@@ -1,24 +1,6 @@
-<html xmlns:th="http://www.thymeleaf.org/">
-    <head>
-        <title>Presupuestos</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            div {
-                background-color: lightyellow;
-                width: 10%;
-                border: 3px solid yellow;
-                padding: 25px;
-                margin: 5px;
-            }
-            .center {
-                margin: auto;
-                width: 10%;
-                border: 3px solid yellow;
-                padding: 10px;
-            }
-        </style>
-    </head>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace= "/fragment/head :: head" </head>
+    
     <body>
 
         <form action="/presupuesto/registro" method="POST">
@@ -34,7 +16,7 @@
                 <input type="number" name= "Valor" placeholder="Valor del presupuesto">
             </div>
 
-            <div class="center">
+            <div>
                 <select name="idCliente">
                     <option>Seleccionar Cliente</option>
                     <option th:each="cliente : ${clientes}"
@@ -44,7 +26,7 @@
                 </select>
             </div>
 
-            <div class="center">
+            <div>
                 <select name="idServicio">  
                     <option>Seleccionar Servicio</option>
                     <option th:each="servicio : ${servicios}"
@@ -54,7 +36,7 @@
                 </select>
             </div>
 
-            <div class="center">
+            <div>
                 <button type="submit"> Guardar </button>
             </div>
 

@@ -1,23 +1,6 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head>
-        <title>Registrarme</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            .divContent {
-                display: grid;
-                justify-content: center;
-            }
-            .div {
-                background-color: lightyellow;
-                width: 200px;
-                border: 3px solid yellow;
-                padding: 25px;
-                margin: 5px;
-            }
-
-        </style>
-    </head>
+    <head th:replace= "/fragment/head :: head" </head>
+    
     <body>
         <div class="divContent">
 

@@ -1,0 +1,73 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace= "/fragment/head :: head" </head>
+    
+    <body>
+        <div class="divContent">
+            <div class="div">
+                <ul>
+                    <li>
+                        <a th:if="${session.usuariosession != null}" href="#">
+                            Presupuestos
+                        </a>
+                        <ul>
+                            <li><a th:href="@{/prespuesto/registrar}">Crear Presupuesto</a></li>
+
+                            <li><a th:href="@{/presupuesto/lista}">Listar Presupuesto</a></li>
+                        </ul>
+                    </li>
+
+                    <hr>
+                    <li>
+                        <a th:if="${session.usuariosession != null}" href="#">
+                            Clientes
+                        </a>
+                        <ul>
+                            <li><a th:href="@{/cliente/registrar}">Crear Cliente</a></li>
+
+                            <li><a th:href="@{/cliente/lista}">Listar Clientes</a></li>
+                        </ul>
+                    </li>
+                    <hr>
+                    <li>
+                        <a th:if="${session.usuariosession != null}" href="#">
+                            Editoriales
+                        </a>
+                        <ul>
+                            <li><a th:href="@{/servicio/registrar}">Crear Servicio</a></li>
+
+                            <li><a th:href="@{/servicio/lista}">Listar Servicio</a></li>
+                        </ul>
+                    </li>
+                    <hr>
+                    <li>
+                        <a th:if="${session.usuariosession != null}" href="#">
+                            Usuarios
+                        </a>
+                        <ul>
+
+                            <li><a th:href="@{/admin/usuarios}">Listar Usuarios</a></li>
+                        </ul>
+                    </li>
+                    <hr>
+                    <li>
+                        <a href="#">
+                            Perfil
+                        </a>
+                        <ul>
+                            <li><a th:href="@{/perfil}" >Editar Perfil</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/logout" >Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </section>
+</header>
+
+</body>
+
+</html>

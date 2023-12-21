@@ -1,26 +1,6 @@
-<!DOCTYPE html>
-
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head>
-        <meta charset="UTF-8">
-        <title>Servicios</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            div {
-                background-color: lightyellow;
-                width: 10%;
-                border: 3px solid yellow;
-                padding: 25px;
-                margin: 5px;
-            }
-            .center {
-                margin: auto;
-                width: 10%;
-                border: 3px solid yellow;
-                padding: 10px;
-            }
-        </style>
-    </head>
+    <head th:replace= "/fragment/head :: head" </head>
+    
     <body>
         <header>
             <div>
@@ -32,7 +12,7 @@
                 <input type="text" name="nombre" placeholder="Nombre del servicio">
             </div>
 
-            <div class="center">
+            <div>
                 <button type="submit"> Guardar </button>
             </div>
             

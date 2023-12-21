@@ -1,26 +1,14 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <head>
-        <title>Inicio</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            .divContent {
-                display: grid;
-                justify-content: center;
-            }
-            .div {
-                background-color: lightyellow;
-                width: 300px;
-                border: 3px solid yellow;
-                padding: 25px;
-                margin: 5px;
-            }
+    <head th:replace= "/fragment/head :: head" </head>
 
-        </style>
-    </head>
     <body>
 
         <div class="divContent">
+
+            <div>
+                <h1 th:if="${session.usuariosession != null}" th:text=" 'Hola de vuelta '+ ${session.usuariosession.nombre}"></h1>
+            </div>
+
             <div class="div">
                 <ul>
                     <ul>
