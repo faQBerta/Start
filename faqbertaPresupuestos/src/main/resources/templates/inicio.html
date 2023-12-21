@@ -8,6 +8,11 @@
             <div>
                 <h1 th:if="${session.usuariosession != null}" th:text=" 'Hola de vuelta '+ ${session.usuariosession.nombre}"></h1>
             </div>
+            <div>
+                <a>
+                    <img class="logo" th:src="@{imagen/perfil/__${session.usuariosession.id}__}" alt="Img perfil">
+                </a>
+            </div>
 
             <div class="div">
                 <ul>
@@ -48,7 +53,7 @@
                     </ul>
 
                     <ul>
-                        <a href="#">Perfil</a>
+                        <a th:href="@{/perfil}">Editar perfil</a>
                     </ul>
                     <ul>
                         <a href="/logout" >Cerrar Sesion</a>

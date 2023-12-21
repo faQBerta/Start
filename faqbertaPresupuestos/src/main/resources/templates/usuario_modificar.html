@@ -5,16 +5,19 @@
         <div class="divContent">
 
             <div class="div">
-                <form th:action="@{/registro}" method="POST" enctype="multipart/form-data">
+                <form th:action="@{/perfil/__${usuario.id}__}" method="POST" enctype="multipart/form-data">
+
+                    <input hidden th:value="${id}" name="id">
 
                     <div>
-                        <h3> Registrate!</h3>
+                        <h3> Actualizar usuario!</h3>
+                    </div>
+
+                    <div>
+                        <input type="text" name="nombre" placeholder="NOMBRE" th:value="${usuario.nombre}">
                     </div>
                     <div>
-                        <input type="text" name="nombre" placeholder="NOMBRE" th:value="${nombre}">
-                    </div>
-                    <div>
-                        <input type="email" name="email" placeholder="EMAIL" th:value="${email}">
+                        <input type="email" name="email" placeholder="EMAIL" th:value="${usuario.email}">
                     </div>
                     <div>
                         <input type="file" name="archivo">
@@ -26,7 +29,7 @@
                         <input type="password" name="password2" placeholder="REPETIR CONTRASEÑA" th:value="${password2}">
                     </div>
 
-                    <button type="submit">Registrarme</button>
+                    <button type="submit">Actualizar</button>
                 </form>
             </div>
 

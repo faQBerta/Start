@@ -1,0 +1,75 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace= "/fragment/head :: head" </head>
+
+    <body>
+
+        <div class="divContent">
+
+            <div>
+                <a th:text="'Error ' + ${codigo}"> Presupuestador de faQ Berta</a>
+                <p th:text="${mensaje}"></p>
+            </div>
+            
+            <div>
+                <h1 th:if="${session.usuariosession != null}" th:text=" 'Hola de vuelta '+ ${session.usuariosession.nombre}"></h1>
+            </div>
+            <div>
+                <a>
+                    <img th:if="${session.usuariosession != null}" class="logo" th:src="@{imagen/perfil/__${session.usuariosession.id}__}" alt="Img perfil">
+                </a>
+            </div>
+
+           <div>
+                <div class="div">
+                    <ul>
+                        <li>
+                            <a>
+                                Ingresar a tu cuenta
+                            </a>
+                            <ul>
+
+                                <li><a th:if="${session.usuariosession == null}" th:href="@{/login}">Login</a></li>
+                            </ul>
+                        </li>
+                        <hr>
+
+                        <li>
+                            <a>
+                                Crear cuenta
+                            </a>
+                            <ul>
+
+                                <li><a th:if="${session.usuariosession == null}" th:href="@{/registrar}">Registrarme</a></li>
+                            </ul>
+                        </li>
+                        <hr>
+
+                        <li>
+                            <a>
+                                Inicio
+                            </a>
+                            <ul>
+
+                                <li><a th:if="${session.usuariosession != null}" th:href="@{/inicio}">Ingresar al sitio web</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div th:if="${error != null}">
+            <div>
+                <h5> Error </h5>
+                <p th:text="${error}"></p>
+            </div>
+        </div>
+
+        <div th:if="${exito != null}">
+            <div>
+                <h5> Exito </h5>
+                <p th:text="${exito}"></p>
+            </div>
+    </body>
+</html>
