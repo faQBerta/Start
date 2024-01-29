@@ -6,6 +6,60 @@ html {
 header {
   border: 1px solid red;
   height: 152px;
+  background-color: #ffed4cfd; /* Ejemplo de color */
+}
+.logo {
+  padding: 20px;
+}
+.search {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.search .form {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+.search .form input {
+  height: 50px;
+  border-radius: 14px;
+  border: none;
+  width: 505px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.search .social ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.search .social ul li {
+  padding: 0 10px;
+}
+.nav {
+  padding: 10px 0;
+}
+.nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.nav ul li a {
+  color: rgb(65, 65, 65);
+  font-weight: 700;
+  text-align: left;
+  text-decoration: none;
+}
+.nav ul li a:hover {
+  text-decoration: underline;
 }
 /*Section HERO*/
 section#hero {
@@ -26,7 +80,13 @@ main {
 }
 footer {
   border: 1px solid #009145; /* Hexadecimal color code*/
-  min-height: 368px;
+  min-height: 250px;
+  background-color: #656565;
+
+}
+footer .container {
+  display: flex;
+  flex-direction: column;
 }
 .container {
   width: 1220px;
@@ -40,6 +100,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
+  padding: 20px;
 }
 /* Card de producto */
 .product-card {
@@ -103,4 +164,75 @@ footer {
 .title-container span:last-child {
   font-size: 100px;
   line-height: 80px;
+}
+.columns-container {
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+.columns-container .col ul {
+  list-style-type: none;
+  padding: 0;
+}
+.columns-container .col ul li {
+  padding: 5px 0;
+}
+.columns-container .col ul li.col-main-item {
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+.columns-container .col ul li a {
+  color: rgb(199, 199, 199);
+  text-decoration: none;
+}
+.copyright {
+  border-top: 1px solid #ba53fb;
+  text-align: center;
+  color: #ffed4cfd;
+  font-weight: bold;
+  padding: 30px 0;
+  box-sizing: border-box;
+}
+.product-description-block .title {
+  color: #333; /* Elige un color adecuado */
+  font-size: 24px; /* Ajusta el tamaño según sea necesario */
+  font-weight: bold;
+  margin-top: 0;
+  word-wrap: break-word;
+}
+.product-description-block .selector fieldset {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.product-description-block .selector select {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 0 10px;
+}
+.product-description-block .description {
+  font-size: 14px;
+  line-height: 20px;
+}
+.product-images-block {
+  max-width: 100%;
+  overflow: hidden; /* Asegúrate de que las imágenes no desborden el contenedor */
+}
+.product-images-block .thumbnail-container {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  overflow: hidden; /* Mantiene la imagen dentro del contenedor */
+  margin: 5px; /* Ajusta el margen según sea necesario */
+  border: 1px solid #ccc; /* Opcional, si deseas bordes */
+}
+.product-images-block .thumbnail-container img {
+  max-width: 100%;
+  height: auto; /* Mantiene la relación de aspecto de la imagen */
+  object-fit: contain; /* Asegura que la imagen se ajuste completamente dentro del contenedor */
 }

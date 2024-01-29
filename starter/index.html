@@ -10,18 +10,38 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Tienda Virtual</title>
+    <title>faqberta - Fotografia</title>
     <style></style>
   </head>
   <body>
     <header>
+      <div class="search">
+        <div class="logo">
+          <img src="./assets/tiendamia-logo.svg" width="218" alt="Logo store" />
+        </div>
+        <div class="form">
+          <form>
+            <input type="text" placeholder="Search" />
+          </form>
+        </div>
+        <div class="social">
+          <!-- Aquí irán los íconos de redes sociales -->
+        </div>
+      </div>
+      <div class="nav">
+        <ul>
+          <li><a href="#">Detalles de servicios</a></li>
+          <li><a href="#">Fechas de entrega</a></li>
+          <li><a href="#">Formas de pago</a></li>
+        </ul>
+      </div>
       <div class="container"></div>
     </header>
     <section id="hero">
       <div class="container">
         <div class="title-container">
-          <span>el mundo</span>
-          <span>en tus dedos</span>
+          <span>tus recuerdos</span>
+          <span>como nunca imaginaste</span>
         </div>
       </div>
     </section>
@@ -31,36 +51,36 @@
           <article class="product-card">
             <img
               class="product-img"
-              src="../assets/mock2.jpg"
-              alt="Macbook Pro"
+              src="../assets/mock1.jpg"
+              alt="Foto preboda"
             />
             <div class="product-info">
-              <span class="product-title">Macbook Pro 13'4</span>
-              <span class="product-description">Space Gray</span>
+              <span class="product-title">Preboda</span>
+              <span class="product-description">Sesion de pareja</span>
               <div class="product-price-block">
-                <span class="price">$550.000</span>
-                <span class="discount">50% Off</span>
+                <span class="price">U$D100</span>
+                <span class="discount">0% Off</span>
               </div>
               <div class="product-tax-policy">
-                Incluye impuesto País y percepción AFIP
+                Precio convertible a pesos con dolar Blue
               </div>
             </div>
           </article>
           <article class="product-card">
             <img
               class="product-img"
-              src="../assets/mock1.jpg"
-              alt="Macbook Pro1"
+              src="../assets/mock2.jpg"
+              alt="Foto preparativo"
             />
             <div class="product-info">
-              <span class="product-title">Macbook Pro 15'4</span>
-              <span class="product-description">Space Gray</span>
+              <span class="product-title">Preparaciones</span>
+              <span class="product-description">Preparativos de la pareja</span>
               <div class="product-price-block">
-                <span class="price">$750.000</span>
-                <span class="discount">50% Off</span>
+                <span class="price">U$D75</span>
+                <span class="discount">25% Off</span>
               </div>
               <div class="product-tax-policy">
-                Incluye impuesto País y percepción AFIP
+                Precio convertible a pesos con dolar Blue
               </div>
             </div>
           </article>
@@ -68,17 +88,19 @@
             <img
               class="product-img"
               src="../assets/mock3.jpg"
-              alt="Macbook Pro2"
+              alt="Foto civil"
             />
             <div class="product-info">
-              <span class="product-title">Macbook Pro 17'4</span>
-              <span class="product-description">Dark Gray</span>
+              <span class="product-title">Ceremonias</span>
+              <span class="product-description"
+                >Ceremonia civil y/o religiosa</span
+              >
               <div class="product-price-block">
-                <span class="price">$950.000</span>
-                <span class="discount">60% Off</span>
+                <span class="price">U$D100</span>
+                <span class="discount">33% Off</span>
               </div>
               <div class="product-tax-policy">
-                Incluye impuesto País y percepción AFIP
+                Precio convertible a pesos con dolar Blue
               </div>
             </div>
           </article>
@@ -86,25 +108,77 @@
             <img
               class="product-img"
               src="../assets/mock4.jpg"
-              alt="Macbook Pro2"
+              alt="Foto fiesta"
             />
             <div class="product-info">
-              <span class="product-title">Macbook Pro 17'4</span>
-              <span class="product-description">Galaxy Black</span>
+              <span class="product-title">Fiesta</span>
+              <span class="product-description">De comienzo a fin</span>
               <div class="product-price-block">
-                <span class="price">$1350.000</span>
-                <span class="discount">45% Off</span>
+                <span class="price">U$D135</span>
+                <span class="discount">10% Off</span>
               </div>
               <div class="product-tax-policy">
-                Incluye impuesto País y percepción AFIP
+                Precio convertible a pesos con dolar Blue
               </div>
             </div>
           </article>
         </div>
       </div>
+      <div class="product-images-block">
+        <div class="thumbnail-container">
+          <img src="../assets/mock1.jpg" alt="Foto preboda" />
+
+          <img src="../assets/mock2.jpg" alt="Foto preparativo" />
+
+          <img src="../assets/mock3.jpg" alt="Foto civil" />
+
+          <img src="../assets/mock4.jpg" alt="Foto fiesta" />
+        </div>
+      </div>
     </main>
     <footer>
-      <div class="container"></div>
+      <div class="container">
+        <div class="columns-container">
+          <div class="col">
+            <ul>
+              <li class="col-main-item">
+                <a href="#">Ofertas de la semana</a>
+              </li>
+              <li><a href="#">Preparaciones</a></li>
+              <li><a href="#">Ceremonias</a></li>
+              <li><a href="#">Fiesta</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul>
+              <li class="col-main-item"><a href="#">Cómo comprar</a></li>
+              <li><a href="#">Formas de pago</a></li>
+              <li><a href="#">Condiciones</a></li>
+              <li><a href="#">Devoluciones</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul>
+              <li class="col-main-item"><a href="#">Costos y tarifas</a></li>
+              <li><a href="#">Impuestos</a></li>
+              <li><a href="#">Facturación</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul>
+              <li class="col-main-item"><a href="#">Mis pedidos</a></li>
+              <li><a href="#">Consultar fecha</a></li>
+              <li><a href="#">Reservar fecha</a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul>
+              <li class="col-main-item"><a href="#">Bases y condiciones</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">faqberta fotografia - tus recuerdos, como nunca imaginaste</div>
+      </div>
     </footer>
   </body>
 </html>
